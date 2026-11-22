@@ -6,20 +6,22 @@
 <p align="center">方案、你确认的文件范围和测试结果，都留在同一张本地卡片里。</p>
 
 <p align="center">
-  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.2/agent-handoff-cards-v0.1.0-alpha.2-source.zip">下载源码 ZIP</a></strong>
+  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.3/agent-handoff-cards-v0.1.0-alpha.3-source.zip">下载源码 ZIP</a></strong>
   · <a href="#快速上手">快速上手</a>
   · <a href="#命令行与-skill">CLI 与 Skill</a>
 </p>
 
-<p align="center"><sub>macOS · 工作台 / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.2">v0.1.0-alpha.2</a></sub></p>
+<p align="center"><sub>macOS · 工作台 / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3">v0.1.0-alpha.3</a></sub></p>
 
-<p align="center"><a href="docs/handoff-overview-zh.jpg"><img width="100%" src="docs/handoff-overview-zh.jpg" alt="完成的交接卡示例。你批准 labels.py，Codex 修复首尾空白，测试从 1/2 通过变为 2/2，Gemini 根据实际结果写回定稿。"></a></p>
+<p align="center"><a href="docs/workbench.png"><img width="100%" src="docs/workbench.png" alt="新版 macOS 交接工作台。左侧列出交接卡，右侧展示五步进度、Gemini 定稿和已确认的文件范围。"></a></p>
 
-*一次真实交接。Codex 只改了 `labels.py`，测试从 1/2 通过变为 2/2。点图放大。*
+*新版工作台实拍，使用示例卡片。点图放大。*
 
 ## 快速上手
 
-需要 macOS 13+、Python 3.9+ 和 Xcode Command Line Tools。下载并解压后，在源码目录运行：
+需要 macOS 13+、Python 3.9+ 和 Xcode Command Line Tools。若尚未安装命令行工具，先运行 `xcode-select --install`。
+
+下载上方的 **源码 ZIP** 并解压。在「终端」进入解压后的 `agent-handoff-cards-v0.1.0-alpha.3` 目录，运行：
 
 ```bash
 python3 -B workbench.py
@@ -52,9 +54,4 @@ python3 -B handoff.py --workspace /path/to/project prompt CARD
 
 已在 Apple Silicon、macOS 26.5.1 上验证。其他 macOS 版本和 Intel Mac 待测。
 
-```bash
-python3 -B -m unittest discover -s tests
-python3 -B workbench.py --build-only
-```
-
-[MIT 许可](LICENSE) · [Release 与校验文件](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.2)
+[MIT 许可](LICENSE) · [Release 与校验文件](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3)

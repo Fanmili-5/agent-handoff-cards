@@ -6,20 +6,22 @@
 <p align="center">One local card holds the draft, the files you approve, and the checks Codex ran.</p>
 
 <p align="center">
-  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.2/agent-handoff-cards-v0.1.0-alpha.2-source.zip">Download source ZIP</a></strong>
+  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.3/agent-handoff-cards-v0.1.0-alpha.3-source.zip">Download source ZIP</a></strong>
   · <a href="#quick-start">Quick start</a>
   · <a href="#cli-and-skill">CLI and Skill</a>
 </p>
 
-<p align="center"><sub>macOS · Workbench / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.2">v0.1.0-alpha.2</a></sub></p>
+<p align="center"><sub>macOS · Workbench / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3">v0.1.0-alpha.3</a></sub></p>
 
-<p align="center"><a href="handoff-overview-en.jpg"><img width="100%" src="handoff-overview-en.jpg" alt="Completed handoff example: the user approves labels.py, Codex removes surrounding spaces, tests improve from one of two passing to two of two, and Gemini saves the final note."></a></p>
+<p align="center"><a href="workbench.png"><img width="100%" src="workbench.png" alt="The redesigned macOS workbench with a card list, five-step progress, the Gemini final draft, and the approved files."></a></p>
 
-*A completed handoff. Codex only edited `labels.py`, and tests went from 1/2 to 2/2 passing. Select the cover to enlarge it.*
+*The macOS workbench showing a completed sample card. The app interface is in Chinese.*
 
 ## Quick start
 
-Requires macOS 13 or later, Python 3.9+, and Xcode Command Line Tools. Unzip the download and run this from the source directory:
+Requires macOS 13 or later, Python 3.9+, and Xcode Command Line Tools. If you need the command line tools, run `xcode-select --install` first.
+
+Download the **source ZIP** above and unzip it. In Terminal, go to the extracted `agent-handoff-cards-v0.1.0-alpha.3` folder and run:
 
 ```bash
 python3 -B workbench.py
@@ -52,9 +54,4 @@ Cards live in the project's `.agent-handoff/` directory. Add it to your local Gi
 
 Tested on Apple Silicon with macOS 26.5.1. Other macOS versions and Intel Macs are unverified.
 
-```bash
-python3 -B -m unittest discover -s tests
-python3 -B workbench.py --build-only
-```
-
-[MIT license](../LICENSE) · [Release notes and checksum](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.2)
+[MIT license](../LICENSE) · [Release notes and checksum](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3)

@@ -25,7 +25,7 @@ def build():
         "CFBundleName": "Agent Handoff",
         "CFBundlePackageType": "APPL",
         "CFBundleShortVersionString": "0.1.0",
-        "CFBundleVersion": "2",
+        "CFBundleVersion": "3",
         "LSMinimumSystemVersion": "13.0",
         "HandoffPython": sys.executable,
     }

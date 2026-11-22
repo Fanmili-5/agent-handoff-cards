@@ -10,7 +10,7 @@ struct AgentHandoffApp: App {
             HandoffPane(store: store)
                 .frame(minWidth: 820, minHeight: 540)
         }
-        .defaultSize(width: 980, height: 660)
+        .defaultSize(width: 1040, height: 720)
     }
 }
 
