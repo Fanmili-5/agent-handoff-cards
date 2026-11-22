@@ -4,11 +4,12 @@ from pathlib import Path
 from zipfile import ZIP_DEFLATED, ZipFile, ZipInfo
 
 ROOT = Path(__file__).resolve().parents[1]
-VERSION = "0.1.0-alpha.3"
+VERSION = "0.1.0-alpha.4"
 FILES = (
     ".agents/skills/agent-handoff/SKILL.md", ".gitignore", "LICENSE", "README.md",
-    "docs/README.en.md", "docs/workbench.png",
+    "docs/README.en.md", "docs/workbench-zh.png", "docs/workbench-en.png",
     "handoff.py", "workbench.py", "macos/App.swift", "macos/Handoff.swift", "tests/test_handoff.py",
+    "macos/WorkbenchLanguage.swift", "macos/en.lproj/Localizable.strings", "macos/zh-Hans.lproj/Localizable.strings",
     "tools/local_config.py", "tools/package_release.py",
 )
 
@@ -23,7 +24,7 @@ def package(output):
             if path.is_symlink() or not path.is_file():
                 raise ValueError(f"发行文件必须是普通文件：{name}")
             content = path.read_bytes()
-            if name == "docs/workbench.png":
+            if path.suffix == ".png":
                 if not content.startswith(b"\x89PNG\r\n\x1a\n"):
                     raise ValueError("交接卡示例必须是 PNG。")
             else:

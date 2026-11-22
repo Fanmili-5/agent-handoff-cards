@@ -10,7 +10,8 @@ import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-SOURCES = ("macos/App.swift", "macos/Handoff.swift")
+SOURCES = ("macos/App.swift", "macos/Handoff.swift", "macos/WorkbenchLanguage.swift")
+LOCALIZATIONS = ("en.lproj/Localizable.strings", "zh-Hans.lproj/Localizable.strings")
 RESOURCES = ("handoff.py", "tools/local_config.py", ".agents/skills/agent-handoff/SKILL.md")
 
 
@@ -20,18 +21,21 @@ def build():
     dist = ROOT / "dist"
     app = dist / "Agent Handoff.app"
     info = {
+        "CFBundleDevelopmentRegion": "en",
         "CFBundleExecutable": "agent-handoff",
         "CFBundleIdentifier": "io.github.fanmili5.agent-handoff",
         "CFBundleName": "Agent Handoff",
         "CFBundlePackageType": "APPL",
         "CFBundleShortVersionString": "0.1.0",
-        "CFBundleVersion": "3",
+        "CFBundleVersion": "4",
         "LSMinimumSystemVersion": "13.0",
         "HandoffPython": sys.executable,
     }
     manifest = plistlib.dumps(info)
     digest = hashlib.sha256(manifest)
-    for name in ("workbench.py", *SOURCES, *RESOURCES):
+    resource_paths = {name: name for name in RESOURCES}
+    resource_paths.update({name: f"macos/{name}" for name in LOCALIZATIONS})
+    for name in ("workbench.py", *SOURCES, *resource_paths.values()):
         digest.update(hashlib.sha256((ROOT / name).read_bytes()).digest())
     fingerprint = digest.hexdigest()
     marker = app / "Contents/Resources/source.sha256"
@@ -47,10 +51,10 @@ def build():
         executable.parent.mkdir(parents=True)
         (contents / "Info.plist").write_bytes(manifest)
         resources = contents / "Resources"
-        for name in RESOURCES:
-            target = resources / name
+        for destination, source in resource_paths.items():
+            target = resources / destination
             target.parent.mkdir(parents=True, exist_ok=True)
-            shutil.copyfile(ROOT / name, target)
+            shutil.copyfile(ROOT / source, target)
         subprocess.run([
             "/usr/bin/xcrun", "swiftc", "-O", "-module-cache-path", Path(temporary) / "cache",
             *(ROOT / name for name in SOURCES), "-o", executable,

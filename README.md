@@ -6,14 +6,14 @@
 <p align="center">方案、你确认的文件范围和测试结果，都留在同一张本地卡片里。</p>
 
 <p align="center">
-  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.3/agent-handoff-cards-v0.1.0-alpha.3-source.zip">下载源码 ZIP</a></strong>
+  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.4/agent-handoff-cards-v0.1.0-alpha.4-source.zip">下载源码 ZIP</a></strong>
   · <a href="#快速上手">快速上手</a>
   · <a href="#命令行与-skill">CLI 与 Skill</a>
 </p>
 
-<p align="center"><sub>macOS · 工作台 / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3">v0.1.0-alpha.3</a></sub></p>
+<p align="center"><sub>macOS · 工作台 / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.4">v0.1.0-alpha.4</a></sub></p>
 
-<p align="center"><a href="docs/workbench.png"><img width="100%" src="docs/workbench.png" alt="新版 macOS 交接工作台。左侧列出交接卡，右侧展示五步进度、Gemini 定稿和已确认的文件范围。"></a></p>
+<p align="center"><a href="docs/workbench-zh.png"><img width="100%" src="docs/workbench-zh.png" alt="新版 macOS 交接工作台。左侧列出交接卡，右侧展示五步进度、Gemini 定稿和已确认的文件范围。"></a></p>
 
 *新版工作台实拍，使用示例卡片。点图放大。*
 
@@ -21,13 +21,15 @@
 
 需要 macOS 13+、Python 3.9+ 和 Xcode Command Line Tools。若尚未安装命令行工具，先运行 `xcode-select --install`。
 
-下载上方的 **源码 ZIP** 并解压。在「终端」进入解压后的 `agent-handoff-cards-v0.1.0-alpha.3` 目录，运行：
+下载上方的 **源码 ZIP** 并解压。在「终端」进入解压后的 `agent-handoff-cards-v0.1.0-alpha.4` 目录，运行：
 
 ```bash
 python3 -B workbench.py
 ```
 
 首次运行会构建并打开 `dist/Agent Handoff.app`。选择两个客户端都能访问的项目，新建一张卡，填入目标和可修改的相对路径。只交付文字时，文件范围留空。
+
+点侧栏左上方的地球图标，在简体中文和 English 之间切换。工作台会记住你的选择。
 
 每段指令由你发送。两个客户端使用各自已有的登录，工作台无需配置 API key。
 
@@ -54,4 +56,4 @@ python3 -B handoff.py --workspace /path/to/project prompt CARD
 
 已在 Apple Silicon、macOS 26.5.1 上验证。其他 macOS 版本和 Intel Mac 待测。
 
-[MIT 许可](LICENSE) · [Release 与校验文件](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3)
+[MIT 许可](LICENSE) · [Release 与校验文件](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.4)

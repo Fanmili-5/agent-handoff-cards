@@ -19,7 +19,7 @@ enum HandoffCommand {
         guard let python = Bundle.main.object(forInfoDictionaryKey: "HandoffPython") as? String,
               let script = Bundle.main.url(forResource: "handoff", withExtension: "py"),
               FileManager.default.isExecutableFile(atPath: python) else {
-            throw CommandError("找不到构建时使用的 Python。请从源码重新构建工作台。")
+            throw Failure.pythonUnavailable
         }
         let task = Process()
         let output = Pipe()
@@ -33,13 +33,18 @@ enum HandoffCommand {
         let data = output.fileHandleForReading.readDataToEndOfFile()
         task.waitUntilExit()
         guard task.terminationStatus == 0 else {
-            throw CommandError(String(decoding: data, as: UTF8.self).trimmingCharacters(in: .whitespacesAndNewlines))
+            throw Failure.command(String(decoding: data, as: UTF8.self).trimmingCharacters(in: .whitespacesAndNewlines))
         }
         return data
     }
 
-    private struct CommandError: LocalizedError {
-        let errorDescription: String?
-        init(_ message: String) { errorDescription = message }
+    enum Failure: LocalizedError {
+        case pythonUnavailable
+        case command(String)
+
+        var errorDescription: String? {
+            if case .command(let message) = self { return message }
+            return nil
+        }
     }
 }

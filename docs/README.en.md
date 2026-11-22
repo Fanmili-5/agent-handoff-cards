@@ -6,28 +6,30 @@
 <p align="center">One local card holds the draft, the files you approve, and the checks Codex ran.</p>
 
 <p align="center">
-  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.3/agent-handoff-cards-v0.1.0-alpha.3-source.zip">Download source ZIP</a></strong>
+  <strong><a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/download/v0.1.0-alpha.4/agent-handoff-cards-v0.1.0-alpha.4-source.zip">Download source ZIP</a></strong>
   · <a href="#quick-start">Quick start</a>
   · <a href="#cli-and-skill">CLI and Skill</a>
 </p>
 
-<p align="center"><sub>macOS · Workbench / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3">v0.1.0-alpha.3</a></sub></p>
+<p align="center"><sub>macOS · Workbench / CLI / Skill · <a href="https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.4">v0.1.0-alpha.4</a></sub></p>
 
-<p align="center"><a href="workbench.png"><img width="100%" src="workbench.png" alt="The redesigned macOS workbench with a card list, five-step progress, the Gemini final draft, and the approved files."></a></p>
+<p align="center"><a href="workbench-en.png"><img width="100%" src="workbench-en.png" alt="The redesigned macOS workbench with a card list, five-step progress, the Gemini final draft, and the approved files."></a></p>
 
-*The macOS workbench showing a completed sample card. The app interface is in Chinese.*
+*The macOS workbench in English, showing a completed sample card. Click the screenshot to enlarge it.*
 
 ## Quick start
 
 Requires macOS 13 or later, Python 3.9+, and Xcode Command Line Tools. If you need the command line tools, run `xcode-select --install` first.
 
-Download the **source ZIP** above and unzip it. In Terminal, go to the extracted `agent-handoff-cards-v0.1.0-alpha.3` folder and run:
+Download the **source ZIP** above and unzip it. In Terminal, go to the extracted `agent-handoff-cards-v0.1.0-alpha.4` folder and run:
 
 ```bash
 python3 -B workbench.py
 ```
 
 The first launch builds and opens `dist/Agent Handoff.app`. Select a project both clients can access. Create a card with the goal and the relative paths Codex may edit. Leave the file scope empty for a writing-only task.
+
+Use the globe at the top of the sidebar to switch between English and Simplified Chinese. The workbench remembers your choice.
 
 You send each prompt. Both clients use their existing sign-ins. The workbench requires no API key.
 
@@ -54,4 +56,4 @@ Cards live in the project's `.agent-handoff/` directory. Add it to your local Gi
 
 Tested on Apple Silicon with macOS 26.5.1. Other macOS versions and Intel Macs are unverified.
 
-[MIT license](../LICENSE) · [Release notes and checksum](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.3)
+[MIT license](../LICENSE) · [Release notes and checksum](https://github.com/Fanmili-5/agent-handoff-cards/releases/tag/v0.1.0-alpha.4)
