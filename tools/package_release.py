@@ -7,6 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 VERSION = "0.1.0-alpha.2"
 FILES = (
     ".agents/skills/agent-handoff/SKILL.md", ".gitignore", "LICENSE", "README.md",
+    "docs/README.en.md", "docs/handoff-example.png",
     "handoff.py", "workbench.py", "macos/App.swift", "macos/Handoff.swift", "tests/test_handoff.py",
     "tools/local_config.py", "tools/package_release.py",
 )
@@ -22,7 +23,11 @@ def package(output):
             if path.is_symlink() or not path.is_file():
                 raise ValueError(f"发行文件必须是普通文件：{name}")
             content = path.read_bytes()
-            content.decode("utf-8")
+            if name == "docs/handoff-example.png":
+                if not content.startswith(b"\x89PNG\r\n\x1a\n"):
+                    raise ValueError("交接卡示例必须是 PNG。")
+            else:
+                content.decode("utf-8")
             member = ZipInfo(f"{prefix}/{name}")
             member.create_system = 3
             member.external_attr = 0o100644 << 16
